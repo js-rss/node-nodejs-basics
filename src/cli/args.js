@@ -10,6 +10,6 @@ const parseArgs = () => {
     }
       //console.log(`${index}: ${val}`); 
 });
-console.log(change)
+console.log(change.split('').slice(0, change.length - 2).join(''));
 }
 parseArgs();
