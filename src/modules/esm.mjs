@@ -1,7 +1,14 @@
-const path = require('path');
-const { release, version } = require('os');
-const { createServer: createServerHttp } = require('http');
-require('./files/c');
+import { release, version } from 'node:os';
+import { createServer as createServerHttp } from 'node:http';
+import { fileURLToPath } from 'node:url';
+import path, { dirname } from 'node:path';
+import { createRequire } from 'node:module';
+import './files/c.js';
+
+const Valid__Path = fileURLToPath(import.meta.url);
+const __dirname = dirname(Valid__Path);
+const __filename = Valid__Path;
+const require = createRequire(import.meta.url);
 
 const random = Math.random();
 
@@ -33,8 +40,7 @@ myServer.listen(PORT, () => {
     console.log('To terminate it, use Ctrl+C combination');
 });
 
-module.exports = {
+export {
     unknownObject,
     myServer,
 };
-
